@@ -100,11 +100,16 @@ namespace VisitLog
 
         private void btn_Remove_Click(object sender, EventArgs e)
         {
-            if (lstBox_Visiters.SelectedIndex >= 0)
+            DialogResult result = MessageBox.Show("Видалити обрані елемети ?", "Увага !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                VisitLogMain.Visits.RemoveAt(lstBox_Visiters.SelectedIndex);
-                AddVisitsToListBox();
+                if (lstBox_Visiters.SelectedIndex >= 0)
+                {
+                    VisitLogMain.Visits.RemoveAt(lstBox_Visiters.SelectedIndex);
+                    AddVisitsToListBox();
+                }
             }
+            
 
         }
 

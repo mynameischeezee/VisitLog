@@ -35,8 +35,15 @@ namespace VisitLog.PresentationLayer
 
         private void btn_Remove_Click(object sender, EventArgs e)
         {
-            form.Show();
-            this.Close();
+
+                DialogResult result = MessageBox.Show("Зміни не будуть збережені,  покинути форму ?", "Увага !", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                VisitLogMain.ID.ID -= 1;
+                form.Show();
+                this.Close();
+                }
+            
 
         }
 
@@ -70,7 +77,7 @@ namespace VisitLog.PresentationLayer
             }
             catch
             {
-                MessageBox.Show("Не всі поля було заповнено ! Будь ласка, заповніть усі поля данними !", "Увага !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Не всі поля було заповнено, або дата буле введено невірно ! Будь ласка, заповніть усі поля данними !", "Увага !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
 
